@@ -556,7 +556,7 @@ def contact_details():
 
             #Outputs each contact row by row
             number = Button(scrollable_frame, text = str(contacts.index(contact)+1) + "\t\t" + str(contact[1]) + "  "*(18- len(str(contact[1]))) +"\t\t" + str(contact[2]) + "  "*(26 - len(str(contact[2]))) + "\t\t" + "0"+str(contact[3]) + "  "*(11 - len(str(contact[3]))) + "\t\t\t" + str(contact[4]) + "  "*(25 - len(str(contact[4]))), font = ('arial', 10, 'bold'), bg = "AliceBlue")
-            number.pack(pady = 20)
+            number.pack(pady = 20, fill = BOTH, expand = True)
 
         # num - A variable for user's input
         num = StringVar()
