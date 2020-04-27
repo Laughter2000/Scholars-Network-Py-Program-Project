@@ -59,7 +59,7 @@ def database():
     cursor.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, password TEXT NOT NULL, first_name NOT NULL, last_name TEXT NOT NULL, email TEXT NOT NULL)")
 
     #Creates the 'contacts' table 
-    cursor.execute("CREATE TABLE IF NOT EXISTS contacts (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, address TEXT, phone_number INTEGER NOT NULL, email_address TEXT, user_id INTEGER NOT NULL, FOREIGN KEY (user_id) REFERENCES users (id))")
+    cursor.execute("CREATE TABLE IF NOT EXISTS contacts (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, address TEXT, phone_number TEXT NOT NULL, email_address TEXT, user_id INTEGER NOT NULL, FOREIGN KEY (user_id) REFERENCES users (id))")
 
 def quit():
     """
@@ -555,7 +555,7 @@ def contact_details():
             contact_num.append(contacts.index(contact)+1)
 
             #Outputs each contact row by row
-            number = Button(scrollable_frame, text = str(contacts.index(contact)+1) + "\t\t" + str(contact[1]) + "  "*(18- len(str(contact[1]))) +"\t\t" + str(contact[2]) + "  "*(26 - len(str(contact[2]))) + "\t\t" + "0"+str(contact[3]) + "  "*(11 - len(str(contact[3]))) + "\t\t\t" + str(contact[4]) + "  "*(25 - len(str(contact[4]))), font = ('arial', 10, 'bold'), bg = "AliceBlue")
+            number = Button(scrollable_frame, text = str(contacts.index(contact)+1) + "\t\t" + str(contact[1]) + "  "*(18- len(str(contact[1]))) +"\t\t" + str(contact[2]) + "  "*(26 - len(str(contact[2]))) + "\t\t" + str(contact[3]) + "  "*(11 - len(str(contact[3]))) + "\t\t\t" + str(contact[4]) + "  "*(25 - len(str(contact[4]))), font = ('arial', 10, 'bold'), bg = "AliceBlue")
             number.pack(pady = 20, fill = BOTH, expand = True)
 
         # num - A variable for user's input
@@ -620,7 +620,7 @@ def update_details():
     #Populates the name, address, phone number and email with the acual data stored
     name.set(contacts[contact][1])
     address.set(contacts[contact][2])
-    phone_number.set("0" + str(contacts[contact][3]))
+    phone_number.set(str(contacts[contact][3]))
     email_address.set(contacts[contact][4])
 
     #Calls this function that prompts the user to update the contact
