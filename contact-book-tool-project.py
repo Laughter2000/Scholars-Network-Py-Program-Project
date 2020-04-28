@@ -11,7 +11,7 @@ import re
 root = Tk()
 root.title("ConCloud: Contact Book Tool")
 root.configure(background = "AliceBlue")
-root.attributes('-fullscreen', True)
+root.attributes('-fullscreen', False)
 
 
 
