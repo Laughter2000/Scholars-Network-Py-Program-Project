@@ -11,18 +11,8 @@ import re
 root = Tk()
 root.title("ConCloud: Contact Book Tool")
 root.configure(background = "AliceBlue")
+root.attributes('-fullscreen', True)
 
- 
-width = 1366
-height = 770
-screen_width = root.winfo_screenwidth()
-screen_height = root.winfo_screenheight()
-x = (screen_width/2) - (width/2)
-y = (screen_height/2) - (height/2)
-root.geometry("%dx%d+%d+%d" % (width, height, x, y))
-
-#This makes the window not to be resizable
-root.resizable(False, False)
 
 
 #Regular Expression for validation of Email
