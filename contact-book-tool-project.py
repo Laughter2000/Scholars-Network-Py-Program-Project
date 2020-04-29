@@ -518,9 +518,9 @@ def add_contacts():
     else:
 
         #Returns an eror if the details already exist in the contacts table attached to the user
-        cursor.execute("SELECT * FROM contacts WHERE `name` = ? and `phone_number` = ? and `user_id` = ?", (name.get(), phone_number.get(), id_number))
+        cursor.execute("SELECT * FROM contacts WHERE `phone_number` = ? and `user_id` = ?", (phone_number.get(), id_number))
         if cursor.fetchone() is not None:
-            lbl_result3.config(text="Contact Name or Phone Number Already Exists!", fg="red")
+            lbl_result3.config(text="Phone Number Already Exists!", fg="red")
         else:
 
             #Validation of Name, Email Address and Phone Number when adding contacts
@@ -761,9 +761,9 @@ def update_contacts():
         lbl_result3.config(text="Please complete the required field!", fg="red")
     else:
         #Validates if the contact is not in the database else returns error
-        cursor.execute("SELECT * FROM contacts WHERE `name` = ? and `phone_number` = ? and `address` = ? and `email_address` = ? and `user_id` = ?", (name.get(), phone_number.get(), address.get(), email_address.get(), id_number))
+        cursor.execute("SELECT * FROM contacts WHERE `phone_number` = ? and `user_id` = ?", (name.get(), phone_number.get(), address.get(), email_address.get(), id_number))
         if cursor.fetchone() is not None:
-            lbl_result3.config(text="Contact Name or Phone Number Already Exists!", fg="red")
+            lbl_result3.config(text="Phone Number Already Exists!", fg="red")
         else:
 
             #Validation of Name, Email Address and Phone Number when updating contacts
